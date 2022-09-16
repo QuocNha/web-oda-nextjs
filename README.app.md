@@ -1081,7 +1081,7 @@ All API routes in Next by default begin with the `/api` prefix to differentiate 
 
 ```ts
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next/types';
 import database from '../../../lib/search/database.json';
 import { ISearchData } from '../../../lib/search/types';
 

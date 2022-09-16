@@ -1,35 +1,36 @@
-import Image from 'next/image';
+import Button from '@mui/material/Button';
+import { NextPage } from 'next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
-import Search from '../components/utility/search/Search';
-import { NextPageWithLayout } from './page';
+import { useTranslation } from 'react-i18next';
+import { Title } from 'src/components/common';
+import styled from 'styled-components';
 
-const Home: NextPageWithLayout = () => {
-  const { locale } = useRouter();
+const CoreTitle = styled(Title)`
+  margin: 40px 0;
+  font-weight: 700;
+`;
 
+const LinkButton = styled(Button)`
+  margin-right: 20px;
+`;
+
+const Home: NextPage = () => {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'zh_CN' ? 'en_US' : 'zh_CN');
+  };
   return (
-    <section className="flex flex-col items-center gap-y-5 mt-12 sm:mt-36">
-      <Image
-        src="/Google.png"
-        alt="Google Logo"
-        width={272}
-        height={92}
-        priority
-      />
-      <Search />
-      <p>
-        Google offered in:{' '}
-        <Link href="/" locale={locale === 'en' ? 'fr' : 'en'}>
-          <a className="underline text-blue-600"> Français</a>
-        </Link>
-      </p>
-    </section>
+    <div>
+      <CoreTitle>Nextjs-TS-material-Redux-Storybook-Jest-Starter</CoreTitle>
+      <LinkButton>
+        <Link href="/">{t('home.user')}</Link>
+      </LinkButton>
+      <LinkButton>
+        <Link href="/">{t('home.articles')}</Link>
+      </LinkButton>
+      <Button onClick={changeLanguage}>{t('home.change_lang')}</Button>
+    </div>
   );
 };
-
 export default Home;
-
-Home.getLayout = (page) => {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
-};
