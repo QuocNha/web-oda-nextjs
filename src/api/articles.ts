@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 import { IArticleInfo } from 'src/types/articles';
 import request from 'src/utils/request';
 
-const URL = '/articles';
+const URL = '/articles/';
 const articles = {
   getAll(params: any): Promise<AxiosResponse<IArticleInfo[]>> {
     return request.get(URL, { params });
