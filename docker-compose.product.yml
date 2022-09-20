@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: './Dockerfile'
+      dockerfile: './Dockerfile.product'
     working_dir: '/var/www/app'
     volumes:
       - ./pages:/var/www/app/pages
