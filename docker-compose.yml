@@ -5,8 +5,13 @@ services:
     build:
       context: .
       dockerfile: './Dockerfile'
-    volumes:
-      - './:/var/www/app'
-      - './node_modules:/var/www/app/node_modules'
+    working_dir: '/var/www/app'
+    # volumes:
+    #   - ./pages:/var/www/app/pages
+    #   - ./src:/var/www/app/src
+    #   - ./public:/var/www/app/public
+    #   - ./styles:/var/www/app/styles
     ports:
       - 3000:3000
+    expose:
+      - 3000

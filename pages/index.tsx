@@ -22,7 +22,7 @@ const Home: NextPage = () => {
   };
   return (
     <div>
-      <CoreTitle>Nextjs-TS-material-Redux-Storybook-Jest-Starter</CoreTitle>
+      <CoreTitle>Nextjs-TS-material-Redux-Storybook-Jest-Start</CoreTitle>
       <LinkButton>
         <Link href="/">{t('home.user')}</Link>
       </LinkButton>
